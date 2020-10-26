@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Test MyCard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Данная верстка не содержит адаптив и респонсив, при желании можно согласовать и доработать макет и под меньшие устройства.
+    Структура компонентов:
+
+    app
+        header
+
+        main
+            head
+
+            body
+                info
+                advertise
+                note
+        footer -->
+
+    <div class="app" id="app">
+
+        <header class="header"><!-- самый верхний блок -->
+
+                <div class="header__account">
+                    <div class="header__imageBlock">
+                        <img class="header__image" src="img/account__image.png" alt="avatar">
+                    </div>
+                    <div class="header__name">
+                        <p class="header__accName">Easyprbot</p>
+                        <p class="header__accTag">@easyprbot</p>
+                    </div>
+                </div>
+
+                <div class="header__option">
+                    <a href="#" class="header__givs header__optionItem">Гивы</a>
+                    <div class="header__feedbackBlock header__optionItem">
+                        <p class="header__feedback">Отзывы</p>
+                        <svg class="header__arrow" width="8" height="5" viewBox="0 0 8 5" fill="none">
+                            <path d="M1 1L4 4L7 1" stroke="#6A7B83" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </div>
+                    
+                    <a href="#" class="header__tracker header__optionItem">Трекер рекламы</a>
+                </div>
+
+                <div class="header__logout">
+                    <svg class="header__icon" width="19" height="21" viewBox="0 0 19 21" fill="none">
+                        <path opacity="0.9"
+                            d="M12.8625 12.4688C11.6854 12.4688 11.1193 13.125 9.1875 13.125C7.25566 13.125 6.69375 12.4688 5.5125 12.4688C2.46914 12.4688 0 14.9379 0 17.9813V19.0313C0 20.1182 0.881836 21 1.96875 21H16.4062C17.4932 21 18.375 20.1182 18.375 19.0313V17.9813C18.375 14.9379 15.9059 12.4688 12.8625 12.4688ZM16.4062 17.9813C16.4062 18.5612 15.9361 19.0313 15.3562 19.0313H3.01875C2.43885 19.0313 1.96875 18.5612 1.96875 17.9813C1.96875 16.0289 3.56016 14.4375 5.5125 14.4375C6.11133 14.4375 7.0834 15.0938 9.1875 15.0938C11.308 15.0938 12.2596 14.4375 12.8625 14.4375C14.8148 14.4375 16.4062 16.0289 16.4062 17.9813ZM9.1875 11.8125C12.4482 11.8125 15.0937 9.16699 15.0937 5.90625C15.0937 2.64551 12.4482 0 9.1875 0C5.92676 0 3.28125 2.64551 3.28125 5.90625C3.28125 9.16699 5.92676 11.8125 9.1875 11.8125ZM9.1875 1.96875C11.3572 1.96875 13.125 3.73652 13.125 5.90625C13.125 8.07598 11.3572 9.84375 9.1875 9.84375C7.01777 9.84375 5.25 8.07598 5.25 5.90625C5.25 3.73652 7.01777 1.96875 9.1875 1.96875Z"
+                            fill="white" />
+                    </svg>
+                </div>
+
+        </header>
+
+        <main class="main"><!-- контент странички -->
+            <section class="main__header head"><!-- заголовок и кнопки -->
+                    <h1 class="head__title">Моя карточка</h1>
+                    <button class="head__btn btn btn--active">Редактировать</button>
+                    <button class="head__btn btn">Скопировать ссылку</button>
+                    <button class="head__btn head__title--icon btn">
+                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none">
+                            <path d="M0 16.62H16V0.62H0V16.62Z" fill="url(#pattern0)" />
+                            <defs>
+                                <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0" transform="scale(0.015625)" />
+                                </pattern>
+                                <image id="image0" width="64" height="64"
+                                    xlink:href="data:image/png;base64,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" />
+                            </defs>
+                        </svg>
+                        <p>Скрыть с сайта</p> 
+                    </button>
+            </section>
+
+            <section class="main__body body"><!-- непосредственно контент, белая область -->
+                <div class="body__info info"><!-- инфа и стата -->
+                    <div class="info__person">
+                        <div class="info__photoBlock">
+                            <img class="info__photo" src="img/autor.png" alt="author">
+                        </div>
+                        <p class="info__name">neotpuskaiteplo</p>
+                        <p class="info__subscr">54,9 тыс. подписчиков</p>
+                        <p class="info__theme">Темы: Обработка фото, Изучение языков, Жизнь за границей</p>
+                    </div>
+
+                    <div class="info__stat">
+                        <div class="info__data">
+                            <p class="info__number">20 197</p>
+                            <p class="info__descrip">Охват сторис<br><span>в среднем</span></p>
+                            <p class="info__number">38 967</p>
+                            <p class="info__descrip">Охват постов<br><span>в среднем</span></p>
+                        </div>
+
+                        <div class="info__audition">
+                            <p class="info__title">Преобладающая статистика аудитории</p>
+                            <p class="info__screen"><span>Скриншоты</span> статистики из Инстаграма от: 18.09.2020</p>
+                            <div class="info__table table">
+                                <div class="table__column">
+                                   <p class="table__row table__row--head">Пол</p>
+                                   <p class="table__row table__row--mb">Женщины — 89%</p>
+                                   <p class="table__row table__row--head">Возраст</p>
+                                   <p class="table__row">18-24 — 48%</p>
+                                </div>
+                                <div class="table__column">
+                                   <p class="table__row table__row--head">Страна</p>
+                                   <p class="table__row table__row--mb">Россия — 66%</p>
+                                   <p class="table__row table__row--head">Город</p>
+                                   <p class="table__row">Санкт-Петербург — 21%</p>
+                                </div>
+                                <div class="table__column">
+                                   <p class="table__row table__row--head">Дата обновления</p>
+                                   <p class="table__row table__row--mb">18.09.2020</p>
+                                   <p class="table__row table__row--head">Средний рейтинг</p>
+                                    <div class="table__row table__row--icon">
+                                        <svg class="table__svg" height="16px" viewBox="0 -10 511.98685 511" width="16px">
+                                            <path
+                                                d="m510.652344 185.902344c-3.351563-10.367188-12.546875-17.730469-23.425782-18.710938l-147.773437-13.417968-58.433594-136.769532c-4.308593-10.023437-14.121093-16.511718-25.023437-16.511718s-20.714844 6.488281-25.023438 16.535156l-58.433594 136.746094-147.796874 13.417968c-10.859376 1.003906-20.03125 8.34375-23.402344 18.710938-3.371094 10.367187-.257813 21.738281 7.957031 28.90625l111.699219 97.960937-32.9375 145.089844c-2.410156 10.667969 1.730468 21.695313 10.582031 28.09375 4.757813 3.4375 10.324219 5.1875 15.9375 5.1875 4.839844 0 9.640625-1.304687 13.949219-3.882813l127.46875-76.183593 127.421875 76.183593c9.324219 5.609376 21.078125 5.097657 29.910156-1.304687 8.855469-6.417969 12.992187-17.449219 10.582031-28.09375l-32.9375-145.089844 111.699219-97.941406c8.214844-7.1875 11.351563-18.539063 7.980469-28.925781zm0 0"
+                                                fill="#ffc107" />
+                                        </svg>
+                                        <p>6,4 из <a href="#" class="table__tableMarked">47 отзывов</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="body__advertise advertise">
+                    <h3 class="advertise__title">Форматы рекламы</h3>
+                    <p class="advertise__note">❗Чтобы избежать мошенников, <span>обязательно запросите подтверждение с основного аккаунта</span> блогера до оплаты.  <a href="#">Инструкция</a></p>
+                    <div class="advertise__table tableAdv">
+                        <div class="tableAdv__row tableAdv__row--head">
+                            <p class="tableAdv__column tableAdv__column--head tableAdv__column--first">Формат рекламы</p>
+                            <p class="tableAdv__column tableAdv__column--head tableAdv__column--second">Цена рекламы</p>
+                            <p class="tableAdv__column tableAdv__column--head tableAdv__column--third">Условия</p>
+                        </div>
+                        <div class="tableAdv__row">
+                            <div class="tableAdve__column tableAdve__column--icon  tableAdv__column--first">
+                                <svg class="tableAdv__svg" width="29" height="29" viewBox="0 0 29 29" fill="none"><circle cx="14.5" cy="14.5" r="14.5" fill="#CCF6E0" />
+                                    <path
+                                        d="M6.0287 10.7121C6.88581 8.79497 8.36781 7.22526 10.2325 6.25944C12.0972 5.29363 14.2344 4.98882 16.2947 5.39484C18.3551 5.80085 20.2168 6.89368 21.5757 8.49473C22.9346 10.0958 23.7103 12.1104 23.776 14.2093C23.8417 16.3083 23.1936 18.3675 21.9375 20.0504C20.6814 21.7333 18.8917 22.9405 16.8608 23.4746C14.8299 24.0087 12.6778 23.8382 10.7563 22.9909C8.83488 22.1436 7.25759 20.6697 6.28222 18.8099M5.54395 9.73092L5.99096 10.8772L7.13725 10.4302"
+                                        stroke="#00D463" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M15.0799 6.95996V15.08L10.4399 17.4" stroke="#00D463" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <p class="tableAdve__text">Сторис 30 сек.</p>
+                            </div>
+                            <p class="tableAdv__column tableAdv__column--second">10 888 500 ₽</p>
+                            <p class="tableAdv__column tableAdv__column--third">Набор на ноябрь. Личные блоги. Пост без удаления из аккаунта. Цена + товар + промокод на скидку для моих подписчиков.</p>
+                        </div>
+                        <div class="tableAdv__row">
+                            <div class="tableAdve__column tableAdve__column--icon tableAdv__column--first">
+                                <svg class="tableAdv__svg" width="29" height="29" viewBox="0 0 29 29" fill="none"><circle cx="14.5" cy="14.5" r="14.5" fill="#CCF6E0" />
+                                    <path
+                                        d="M6.0287 10.7121C6.88581 8.79497 8.36781 7.22526 10.2325 6.25944C12.0972 5.29363 14.2344 4.98882 16.2947 5.39484C18.3551 5.80085 20.2168 6.89368 21.5757 8.49473C22.9346 10.0958 23.7103 12.1104 23.776 14.2093C23.8417 16.3083 23.1936 18.3675 21.9375 20.0504C20.6814 21.7333 18.8917 22.9405 16.8608 23.4746C14.8299 24.0087 12.6778 23.8382 10.7563 22.9909C8.83488 22.1436 7.25759 20.6697 6.28222 18.8099M5.54395 9.73092L5.99096 10.8772L7.13725 10.4302"
+                                        stroke="#00D463" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M15.0799 6.95996V15.08L10.4399 17.4" stroke="#00D463" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <p class="tableAdve__text">Сторис 45-60 сек.</p>
+                            </div>
+                            <p class="tableAdv__column tableAdv__column--second">445 000 ₽</p>
+                            <p class="tableAdv__column tableAdv__column--third">Набор на ноябрь. Личные блоги. 2-3 разговорных сторис о блоге.</p>
+                        </div>
+                        <div class="tableAdv__row">
+                            <div class="tableAdve__column tableAdve__column--icon tableAdv__column--first">
+                                <svg class="tableAdv__svg" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="14.5" cy="14.5" r="14.5" fill="#FDE8ED" />
+                                    <rect x="6.2998" y="6.2998" width="16.4" height="16.4" rx="2.5" stroke="#F12B2C" />
+                                    <circle cx="19.9376" cy="9.06211" r="1.0875" fill="#F12B2C" />
+                                    <circle cx="14.8625" cy="14.8625" r="3.4875" stroke="#F12B2C" />
+                                </svg>
+                                <p class="tableAdve__text">Фото-пост.</p>
+                            </div>
+                            <p class="tableAdv__column tableAdv__column--second">15 000 ₽</p>
+                            <p class="tableAdv__column tableAdv__column--third">Набор на декабрь. Коммерция. Пост без удаления из аккаунта.</p>
+                        </div>
+                        <div class="tableAdv__row">
+                            <div class="tableAdve__column tableAdve__column--icon tableAdv__column--first">
+                                <svg class="tableAdv__svg" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="14.5" cy="14.5" r="14.5" fill="#E6D8F0" />
+                                    <rect x="6.2998" y="6.2998" width="16.4" height="16.4" rx="2.5" stroke="#866CFF" />
+                                    <circle cx="19.9376" cy="9.06211" r="1.0875" fill="#866CFF" />
+                                    <path
+                                        d="M9.4248 12.325C9.4248 11.5242 10.074 10.875 10.8748 10.875H16.6748C17.4756 10.875 18.1248 11.5242 18.1248 12.325V17.4C18.1248 18.2008 17.4756 18.85 16.6748 18.85H10.8748C10.074 18.85 9.4248 18.2008 9.4248 17.4V12.325Z"
+                                        stroke="#866CFF" stroke-linejoin="round" />
+                                    <path d="M18.1248 16.0536V13.8786L20.2999 13.05V16.675L18.1248 16.0536Z" stroke="#866CFF" stroke-linejoin="round" />
+                                </svg>
+                                <p class="tableAdve__text">Видео-пост</p>
+                            </div>
+                            <p class="tableAdv__column tableAdv__column--second">9 500 ₽</p>
+                            <p class="tableAdv__column tableAdv__column--third">Набор на январь. Личные блоги. До 4 сторис. В основном, 1-2 видеоподводки, 1-2 макета + скрин интересного поста (на него
+                            хорошие переходы).</p>
+                        </div>
+                        <div class="tableAdv__row">
+                            <div class="tableAdve__column tableAdve__column--icon tableAdv__column--first">
+                                <svg class="tableAdv__svg" width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="14.5" cy="14.5" r="14.5" fill="#FFEADF" />
+                                    <circle cx="14.5002" cy="14.5002" r="8.925" stroke="#FF9861" />
+                                    <path d="M11.6001 18.8504V10.1504L18.8501 14.5004L11.6001 18.8504Z" stroke="#FF9861" stroke-linejoin="round" />
+                                </svg>
+                                <p class="tableAdve__text">Сторис+пост</p>
+                            </div>
+                            <p class="tableAdv__column tableAdv__column--second">13 300 ₽</p>
+                            <p class="tableAdv__column tableAdv__column--third">Набор на ноябрь. Личные блоги. 2-3 разговорных сторис о блоге.</p>
+                        </div>
+                    </div>
+                </div><!-- Таблица с описанием вариантов рекламы -->
+
+                <div class="body__note note"><!-- предупреждение, которое никто не читает -->
+                    <p class="note__text">Блогер не рекламирует: сетевой бизнес, астрология, гадания, казино и прочую херню, казино, карты таро, гадание,
+                    порнографический контент, пирамиды, подделки, некачественные товары, похудение, фитнес и тд, питание, пп, ип, рпп и тд ,
+                    мамские блоги, смм, обработка, путешествия, сетевики.</p>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer"><!-- Собственно, футер -->
+            <div class="footer__wrap">
+                <a href="#" class="footer__text">Пользовательское соглашение</a>
+                <a href="#" class="footer__text">Политика конфиденциальности</a>
+                <a href="#" class="footer__text">Написать в техподдержку</a>
+            </div>
+            
+        </footer>
+
+    </div>
+
+    
+<script src="js/script.js"></script>
+</body>
+</html> 
+
